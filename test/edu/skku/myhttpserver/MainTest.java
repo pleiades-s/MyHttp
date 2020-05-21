@@ -57,7 +57,9 @@ class MainTest {
             in.close();
 
             // print result
-            System.out.println(response.toString());
+            String result = response.toString();
+            System.out.println(result);
+            assertEquals("echo", result);
         } else {
             System.out.println("GET request not worked");
         }
