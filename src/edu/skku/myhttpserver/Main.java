@@ -28,13 +28,14 @@ public class Main {
         }
 
         public void handle(HttpExchange httpExchange) throws IOException {
-            byte [] readBytes = httpExchange.getRequestBody().readAllBytes();
-            String read = new String(readBytes,  StandardCharsets.UTF_8.name());
+            String requestURL = httpExchange.getRequestURI().toString();
+
+//            String read = new String(readBytes,  StandardCharsets.UTF_8.name());
             System.out.println("Request Method: " + httpExchange.getRequestMethod());
-            System.out.println("Request Body: " + read);
-            httpExchange.sendResponseHeaders(200, readBytes.length);
+            System.out.println("Request URL: " + requestURL);
+            httpExchange.sendResponseHeaders(200, requestURL.length());
             OutputStream os = httpExchange.getResponseBody();
-            os.write(readBytes); // echo
+            os.write(requestURL.getBytes()); // echo
             os.flush();
         }
 

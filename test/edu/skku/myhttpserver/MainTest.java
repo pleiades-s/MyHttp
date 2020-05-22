@@ -39,7 +39,7 @@ class MainTest {
 
     @Test
     void sendGET() throws IOException {
-        URL obj = new URL("https://localhost:8080/echo");
+        URL obj = new URL("http://localhost:8080/echo");
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
@@ -59,7 +59,7 @@ class MainTest {
             // print result
             String result = response.toString();
             System.out.println(result);
-            assertEquals("echo", result);
+            assertEquals("/echo", result);
         } else {
             System.out.println("GET request not worked");
         }
