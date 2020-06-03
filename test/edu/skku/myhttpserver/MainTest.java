@@ -26,7 +26,7 @@ class MainTest {
         server = HttpServer.create(new InetSocketAddress("localhost", 8080), 0);
 
         List<Main.AbstractHttpHandler> handlers = List.of(
-                new Main.EchoHandler()
+                new Main.StoryInfoHandler()
         );
 
         for (Main.AbstractHttpHandler handler: handlers) {
